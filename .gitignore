@@ -1,0 +1,17 @@
+# 本工具安装时写下的所有权标记 —— 每个使用者的机器上都会重新生成，
+# 内容含那台机器上的绝对路径，不该进版本库。
+.find-skill-owned
+
+# 可变状态的默认落点（正常情况下在 ~/.claude/find-skill/，不在仓库里；
+# 这里只是防止有人在仓库内跑脚本时把缓存/记录提交上去）
+cache/
+records/
+staging/
+*.jsonl
+INSTALLED.md
+
+# 杂项
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
