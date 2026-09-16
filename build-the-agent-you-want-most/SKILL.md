@@ -32,7 +32,7 @@ allowed-tools: [AskUserQuestion, Read, Write, Edit, Bash, TodoWrite, Agent]
 | 0 找核心原则 | 一句**逐字引用**的话 | 本文件 |
 | 1 苏格拉底追问 | 矛盾清单 | [`QUESTION-BANK.md`](QUESTION-BANK.md) |
 | 2 张小龙式反驳 | 三轮 + 诚实记账表 | [`STEELMAN.md`](STEELMAN.md) |
-| 3 得出 solution | 六节落地方案 | [`PLAN-TEMPLATE.md`](PLAN-TEMPLATE.md) |
+| 3 得出 solution | 七节落地方案 | [`PLAN-TEMPLATE.md`](PLAN-TEMPLATE.md) |
 | 4 确认后才动手 | 用户明确点头 | 本文件 |
 | 5 落地执行 | 能跑的东西 + **思维链留痕** | [`LANDING.md`](LANDING.md) |
 | 6 反思总结 | 三问复盘 | [`LANDING.md`](LANDING.md) |
@@ -197,7 +197,7 @@ allowed-tools: [AskUserQuestion, Read, Write, Edit, Bash, TodoWrite, Agent]
 1. **用户不可变的核心原则**（逐字引用 + 拆成硬约束）
 2. **我收回的反对意见**（诚实记账表）—— 放在前面，不藏在附录
 3. **由核心原则推出的新后果**（用户没意识到的张力 + 选项）
-4. **架构与节点/模块表**（每个节点写职责 + 断点 / 失败姿态）
+4. **架构与选型**（节点表：职责 + 断点 / 失败姿态；选型表：按**需求**组织，不按产品）
 5. **里程碑 —— 按"核心原则最早落地"排序**
 6. **验证方式 —— 每条断言配一个能失败的检查**
 7. **诚实风险 —— 把最大的不确定性写在第一条**
@@ -239,13 +239,14 @@ allowed-tools: [AskUserQuestion, Read, Write, Edit, Bash, TodoWrite, Agent]
 这一步的核心不是"把代码写出来"，是**边写边留下为什么** —— 见
 [`LANDING.md`](LANDING.md) 的两部分：落地步骤、思维链留痕。
 
-三条最容易违反的纪律：
+四条最容易违反的纪律：
 
 | 纪律 | 违反的样子 |
 |---|---|
 | **M1 必须是"最不确定的那件事"** | 先搭目录、先配环境、先做最容易的 —— 把风险留到最后 |
 | **一次只改一个变量** | 同时改两处，你得到的是"现在能跑了"，不是"因为什么能跑" |
 | **不可再生的数据第一步落盘** | 音频、原始素材、用户手写草稿，早于任何可能失败的步骤 |
+| **可续跑靠落盘，不靠框架** | 选了个带 checkpointer 的框架就以为续跑有了；强杀一次才发现状态根本没存 —— **框架给的是放状态的地方，不是状态已经放好了** |
 
 ---
 
