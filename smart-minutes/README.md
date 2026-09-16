@@ -7,8 +7,54 @@
 
 ---
 
-> **落地一个会议纪要 agent。** 录线下会（麦克风）或线上会（系统声）→ 音频与逐字稿
-> **留在本机** → 自动提炼会议要点 —— **并且给出置信度**。
+## 安装
+
+### 方式一：把这一行发给你的 agent
+
+```
+帮我安装这个 skill：https://github.com/Jojo-dai/JOJO-Lab/tree/main/smart-minutes
+```
+
+粘贴给 Claude Code / Cursor / 任何能读网页的 agent，它会自己取文件、放进 skills
+目录、确认装好。**你不需要事先 clone 这个仓库。**
+
+### 方式二：自己一条命令跑完
+
+```bash
+npx --yes skills@1.5.25 add Jojo-dai/JOJO-Lab -s smart-minutes -g --copy -y
+```
+
+`-s smart-minutes` 是关键 —— 这个仓库里有多个 skill，不指定会全装。
+
+### 方式三：手工装（不依赖 npx）
+
+```bash
+git clone --depth 1 https://github.com/Jojo-dai/JOJO-Lab.git /tmp/jojolab
+mkdir -p ~/.claude/skills
+cp -r /tmp/jojolab/smart-minutes ~/.claude/skills/
+rm -rf /tmp/jojolab
+```
+
+Windows PowerShell：
+
+```powershell
+git clone --depth 1 https://github.com/Jojo-dai/JOJO-Lab.git "$env:TEMP\jojolab"
+New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\skills" | Out-Null
+Copy-Item -Recurse "$env:TEMP\jojolab\smart-minutes" "$env:USERPROFILE\.claude\skills\"
+Remove-Item -Recurse -Force "$env:TEMP\jojolab"
+```
+
+### 装完
+
+**重启 Claude Code**，然后 `/smart-minutes`，或直接说「帮我落地一个会议纪要 agent」。
+
+> ⚠️ **目录名必须与 `SKILL.md` 里的 `name:` 字段完全一致**（都是 `smart-minutes`）。
+> 不一致的话 Claude Code 扫不到它，而且**不报错** —— 只是"没反应"。
+> 手工装时特别留意别把目录改成 `Smart-Minutes` 之类。
+
+**依赖**：无。纯 Markdown，不需要 Node、不需要 Python、不需要任何 key。
+
+---
 
 ## 它解决的痛点
 

@@ -6,6 +6,58 @@
 
 ---
 
+## 安装
+
+### 方式一：把这一行发给你的 agent
+
+```
+帮我安装这个 skill：https://github.com/Jojo-dai/JOJO-Lab/tree/main/find-the-skill-you-want-most
+```
+
+粘贴给 Claude Code / Cursor / 任何能读网页的 agent，它会自己取文件、放进 skills
+目录、确认装好。**你不需要事先 clone 这个仓库。**
+
+### 方式二：自己一条命令跑完
+
+```bash
+npx --yes skills@1.5.25 add Jojo-dai/JOJO-Lab -s find-the-skill-you-want-most -g --copy -y
+```
+
+`-s find-the-skill-you-want-most` 是关键 —— 这个仓库里有多个 skill，不指定会全装。
+
+### 方式三：手工装（不依赖 npx）
+
+```bash
+git clone --depth 1 https://github.com/Jojo-dai/JOJO-Lab.git /tmp/jojolab
+mkdir -p ~/.claude/skills
+cp -r /tmp/jojolab/find-the-skill-you-want-most ~/.claude/skills/
+rm -rf /tmp/jojolab
+```
+
+Windows PowerShell：
+
+```powershell
+git clone --depth 1 https://github.com/Jojo-dai/JOJO-Lab.git "$env:TEMP\jojolab"
+New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\skills" | Out-Null
+Copy-Item -Recurse "$env:TEMP\jojolab\find-the-skill-you-want-most" "$env:USERPROFILE\.claude\skills\"
+Remove-Item -Recurse -Force "$env:TEMP\jojolab"
+```
+
+### 装完
+
+**重启 Claude Code**，然后 `/find-the-skill-you-want-most`，
+或直接说「帮我找个能做 X 的 skill」。
+
+> ⚠️ **目录名必须与 `SKILL.md` 里的 `name:` 字段完全一致**
+> （都是 `find-the-skill-you-want-most`）。不一致的话 Claude Code 扫不到它，
+> 而且**不报错** —— 只是"没反应"。
+
+**依赖**：Node.js ≥ 20（开发与验证在 v24.14.1 上完成）。
+需要联网（`skills.sh` 拿安装量 + `api.github.com` 取文件），无需 token，无需 `jq`。
+不需要 Python，不接受任何 LLM 调用。
+
+---
+
 > 给定一句需求（"我想要一个评估产品落地可行性的 skill"），产出一份**带淘汰理由的候选表**，
 > 你挑中之后才安装。
 

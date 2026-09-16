@@ -32,38 +32,32 @@ JOJO-Lab/
 > 哪段属于哪个 skill，改一个 skill 也要动公共文件。拆开之后：
 > 加新 skill 只需**新建目录 + 一个 `README.md`**，再在根页表格里加一行 ——
 > **不用改动任何已有 skill 的文档**。
->
-> ⚠️ `~/.claude/skills/` 只认「**目录名 = skill 名**」，所以子目录名必须与
-> `SKILL.md` 里 `name:` 字段**完全一致**。
 
 ---
 
 ## 安装
 
-**方式一：走 `npx skills`**（推荐）
+**一个 skill 一个链接。** 把下面任意一行**原样发给你的 agent**，它就能自己装 ——
+不需要你事先 clone 这个仓库：
+
+| skill | 发给 agent 的一行 |
+|---|---|
+| **find-the-skill-you-want-most** | `帮我安装这个 skill：https://github.com/Jojo-dai/JOJO-Lab/tree/main/find-the-skill-you-want-most` |
+| **smart-minutes** | `帮我安装这个 skill：https://github.com/Jojo-dai/JOJO-Lab/tree/main/smart-minutes` |
+
+或者自己一条命令跑完（把 `<skill>` 换成上表的目录名）：
 
 ```bash
-npx skills add Jojo-dai/JOJO-Lab
+npx --yes skills@1.5.25 add Jojo-dai/JOJO-Lab -s <skill> -g --copy -y
 ```
 
-**方式二：手工放进 skills 目录**
+> `-s <skill>` **必须指定** —— 这个仓库里有多个 skill，不指定会把它们**全装上**。
 
-`~/.claude/skills/` 只认「目录名 = skill 名」，而 clone 下来的目录叫 `JOJO-Lab`，
-所以要多一步把子目录挪出去：
+装完**重启 Claude Code**。每个 skill 页顶部还有**手工安装方式**（含 Windows
+PowerShell 版本）和各自的依赖说明。
 
-```bash
-cd ~/.claude/skills
-git clone https://github.com/Jojo-dai/JOJO-Lab.git _jojolab-tmp
-mv _jojolab-tmp/smart-minutes ./          # 换成你要的那一个
-rm -rf _jojolab-tmp
-```
-
-装完**重启 Claude Code**，即可作为 `/smart-minutes` 调用，或直接说
-"帮我落地一个会议纪要 agent"。
-
-**要求**：只有 `find-the-skill-you-want-most` 需要 Node.js ≥ 20
-（开发与验证在 v24.14.1 上完成，无需 token，无需 `jq`）。
-`smart-minutes` 是**纯 Markdown**，没有任何运行时依赖。
+> ⚠️ `~/.claude/skills/` 只认「**目录名 = skill 名**」。目录名与 `SKILL.md` 里的
+> `name:` 不一致时，Claude Code **扫不到它，而且不报错** —— 表现只是"没反应"。
 
 ---
 
