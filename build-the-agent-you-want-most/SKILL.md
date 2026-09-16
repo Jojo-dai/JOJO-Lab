@@ -1,5 +1,5 @@
 ---
-name: build-the-agent-you-most-want
+name: build-the-agent-you-want-most
 version: 1.0.0
 description: Turn a vague "I want an agent that…" into a landed, working solution — Socratic questioning until the user's immovable core principle is stated verbatim, three rounds of Zhang Xiaolong-style steelman rebuttal with public retraction of every objection that doesn't survive, a landing plan with honest risk accounting, a step-by-step build that records its own reasoning, and a retro that checks which judgments the evidence overturned. Use when someone brings a fuzzy agent/product idea and wants it designed and shipped, not just discussed.
 triggers:
@@ -15,7 +15,7 @@ triggers:
 allowed-tools: [AskUserQuestion, Read, Write, Edit, Bash, TodoWrite, Agent]
 ---
 
-# Build the agent you most want
+# Build the agent you want most
 
 把一个模糊的「我想要一个能…的 agent」锻造成**能跑起来的东西**。**七个阶段，顺序不能换**：
 

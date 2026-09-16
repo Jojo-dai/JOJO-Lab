@@ -1,4 +1,4 @@
-# build-the-agent-you-most-want
+# build-the-agent-you-want-most
 
 > 把一句模糊的「我想要一个能…的 agent」锻造成**能跑起来的东西** ——
 > 苏格拉底式追问 → 张小龙式反驳 → agent solution → 落地 → 思维链留痕 → 反思。
@@ -10,14 +10,14 @@
 ## 安装
 
 ```
-帮我安装这个 skill：https://github.com/Jojo-dai/JOJO-Lab/tree/main/build-the-agent-you-most-want
+帮我安装这个 skill：https://github.com/Jojo-dai/JOJO-Lab/tree/main/build-the-agent-you-want-most
 ```
 
 **把这一行发给你的 agent**，它会自己取文件、装好。不用 clone，不用记命令。
 
-装完重启 Claude Code，然后 `/build-the-agent-you-most-want`。
+装完重启 Claude Code，然后 `/build-the-agent-you-want-most`。
 
-> ⚠️ 目录名必须与 `SKILL.md` 里的 `name:` 一致（都是 `build-the-agent-you-most-want`）。
+> ⚠️ 目录名必须与 `SKILL.md` 里的 `name:` 一致（都是 `build-the-agent-you-want-most`）。
 > 不一致时 Claude Code **扫不到它，而且不报错** —— 表现只是"没反应"。
 
 ---
